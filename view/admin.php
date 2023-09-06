@@ -18,7 +18,7 @@ if (!isset($_SESSION['token'])) {
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="./index">Ocha</a>
+            <a class="navbar-brand" href="../index">Ocha</a>
             <div class="d-flex ms-auto">
                 <div class="dropdown dropstart">
                     <button type="button" class="btn btn-outline-secondary btn-sm mx-1 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -59,7 +59,7 @@ if (!isset($_SESSION['token'])) {
         <div class="row justify-content-md-center g-2">
             <div class="col"></div>
             <div class="col">
-                <img src="./images/<?php echo $_SESSION['userId'] . '/' . $_SESSION['profileImage'] ?>" class="img-thumbnail rounded-circle" width="100px" height="100px" alt="">
+                <img src="../images/<?php echo $_SESSION['userId'] . '/' . $_SESSION['profileImage'] ?>" class="img-thumbnail rounded-circle" width="100px" height="100px" alt="">
             </div>
             <div class="col"></div>
         </div>
@@ -81,7 +81,7 @@ if (!isset($_SESSION['token'])) {
             </div>
             <div class="col text-start">
                 <button type="button" class="btn btn-sm">
-                    <span class="glyphicon glyphicon-copy-url" aria-hidden="true" data-url="localhost/u/<?php echo $_SESSION['userId'] ?>" id="copy-url"><img width="20" height="20" src="https://img.icons8.com/ios/50/clipboard.png" alt="clipboard" /></span>
+                    <span class="glyphicon glyphicon-copy-url" aria-hidden="true" data-url="<?php echo $_SERVER['HTTP_HOST'] ?>/u/<?php echo $_SESSION['userId'] ?>" id="copy-url"><img width="20" height="20" src="https://img.icons8.com/ios/50/clipboard.png" alt="clipboard" /></span>
                 </button>
             </div>
 
@@ -145,7 +145,7 @@ if (!isset($_SESSION['token'])) {
                 } catch (PDOException $e) {
                     $msg = $e->getMessage();
                     $_SESSION['msg'] = $msg;
-                    header('Location: ./index');
+                    header('Location: ../index');
                 }
 
                 try {
@@ -220,7 +220,7 @@ if (!isset($_SESSION['token'])) {
                 } catch (PDOException $e) {
                     $msg = $e->getMessage();
                     $_SESSION['msg'] = $msg;
-                    header('Location: ./index');
+                    header('Location: ../index');
                 }
                 ?>
             </div>

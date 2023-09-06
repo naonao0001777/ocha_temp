@@ -21,7 +21,7 @@ if (isset($logoutFlag)) {
     // ログアウト処理
     unset($_SESSION['msg']);
     session_destroy();
-    header('Location: ../login');
+    header('Location: ../view/login');
     exit;
 } elseif (isset($loginFlag)) {
     // ログイン処理
@@ -29,7 +29,7 @@ if (isset($logoutFlag)) {
         if (!$_SESSION['token'] = $_POST['token']) {
             $_SESSION['msg'] = "不正なアクセス";
             session_destroy();
-            header('Location: ../login');
+            header('Location: ../view/login');
             exit;
         } else {
             $userPassword = $_POST['userPassword'];
@@ -44,7 +44,7 @@ if (isset($logoutFlag)) {
                 $msg = message::UNMATCH_USER_PASSWORD;
                 $_SESSION['msg'] = $msg;
 
-                header('Location: ../login');
+                header('Location: ../view/login');
             } else {
                 if (password_verify($userPassword, $fetchedUser['password'])) {
                     $msg = message::LOGINED;
@@ -52,13 +52,13 @@ if (isset($logoutFlag)) {
                     $_SESSION['profileImage'] = $fetchedUser['profile_image'];
                     $_SESSION['msg'] = $msg;
                     $sessionToken = $_SESSION['token'];
-                    
-                    header('Location: ../admin');
+
+                    header('Location: ../view/admin');
                 } else {
                     $msg = message::UNMATCH_USER_PASSWORD;
                     $_SESSION['msg'] = $msg;
 
-                    header('Location: ../login');
+                    header('Location: ./view/login');
                 }
             }
         }
@@ -84,13 +84,13 @@ if (isset($logoutFlag)) {
             $msg = message::MAIL_IS_USED;
             $_SESSION['msg'] = $msg;
 
-            header("Location: ../register");
+            header("Location: ../view/register");
         } else {
             if ($fetchedUser['user_id'] == $userId) {
                 $msg = message::USER_ID_IS_USED;
                 $_SESSION['msg'] = $msg;
 
-                header("Location: ../register");
+                header("Location: ../view/register");
             } else {
                 $sql = DatabaseStatement::INSERT_USER_USERS;
                 $stmt = $dbh->prepare($sql);
@@ -105,7 +105,7 @@ if (isset($logoutFlag)) {
                 $stmt->bindvalue(':userId', $userId);
                 $stmt->execute();
                 $_SESSION['userId'] = $userId;
-                header('Location: ../admin');
+                header('Location: ../view/admin');
             }
         }
     } catch (PDOException $e) {

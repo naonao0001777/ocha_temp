@@ -13,7 +13,7 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="./index">Ocha</a>
+            <a class="navbar-brand" href="../index">Ocha</a>
             <div class="d-flex ms-auto">
                 <form method="post" action="./login">
                     <div class="">

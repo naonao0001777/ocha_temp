@@ -22,7 +22,7 @@ if (isset($_FILES['fileUpload'])) {
     // アップロードファイルのエラー情報チェック
     if (!isset($uploadedFileErrorInfo) || !is_int($uploadedFileErrorInfo)) {
         $_SESSION['msg'] = "FileUploadErrorCode:" . $uploadedFileErrorInfo;
-        header('Location: ../admin');
+        header('Location: ../view/admin');
         exit;
     }
     // アップロードファイルの拡張子チェック
@@ -35,7 +35,7 @@ if (isset($_FILES['fileUpload'])) {
         true
     )) {
         $_SESSION['msg'] = "ファイルの拡張子をjpegかpngにしてください。";
-        header('Location: ../admin');
+        header('Location: ../view/admin');
         exit;
     }
     // ファイル名をユニファイ
@@ -153,11 +153,11 @@ if (isset($_POST['add'])) {
             $_SESSION['msg'] = $msg;
         }
 
-        header('Location: ../admin');
+        header('Location: ../view/admin');
     } catch (PDOException $e) {
         $msg = $e->getMessage();
         echo $msg;
-        header('Location: ../admin');
+        header('Location: ../view/admin');
     }
     // 指定したカラムを更新
 } elseif (isset($_POST['update'])) {
@@ -188,11 +188,11 @@ if (isset($_POST['add'])) {
         $msg = "リンクを更新しました。";
         $_SESSION['msg'] = $msg;
 
-        header('Location: ../admin');
+        header('Location: ../view/admin');
     } catch (PDOException $e) {
         $msg = $e->getMessage();
         echo $msg;
-        header('Location: ../admin');
+        header('Location: ../view/admin');
     }
     // カラム内データを削除して後ろのカラムを前に詰める
 } elseif (isset($_POST['delete'])) {
@@ -254,12 +254,12 @@ if (isset($_POST['add'])) {
         $msg = "リンクを編集";
         $_SESSION['msg'] = $msg;
 
-        header('Location: ../admin');
+        header('Location: ../view/admin');
     } catch (PDOException $e) {
         $msg = $e->getMessage();
         echo $msg;
-        header('Location: ../admin');
+        header('Location: ../view/admin');
     }
 } else {
-    header('Location: ../admin');
+    header('Location: ../view/admin');
 }
