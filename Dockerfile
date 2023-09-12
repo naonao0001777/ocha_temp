@@ -14,8 +14,26 @@
 # most recent version of that image when you build your Dockerfile.
 # If reproducability is important, consider using a versioned tag
 # (e.g., alpine:3.17.2) or SHA (e.g., alpine:sha256:c41ab5c992deb4fe7e5da09f67a8804a46bd0592bfdf0b1847dde0e0889d2bff).
-FROM php:fpm
-COPY php.ini C:\src\ocha
+FROM php:8.2.9-apache
+# RUN apt-get update -y \
+#   && apt-get upgrade -y \
+#   && apt-get install -y pdo_mysql mysqli
+
+# ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
+# RUN chmod +x /usr/local/bin/install-php-extensions
+RUN apt-get update &&\
+  # 最小構成（PNG 可）
+  apt-get install -y zlib1g-dev libpng-dev &&\
+  docker-php-ext-install -j$(nproc) gd
+  
+RUN docker-php-ext-install pdo_mysql mysqli
+# RUN install-php-extensions mysqli pdo_mysql
+# RUN docker-php-ext-install pdo_mysql
+
+# Apacheのモジュールを有効化
+RUN a2enmod rewrite
+
+# COPY ./php/php.ini /usr/local/etc/php/
 ################################################################################
 # Create a stage for building/compiling the application.
 #
