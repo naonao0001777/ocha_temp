@@ -58,7 +58,7 @@ if (isset($logoutFlag)) {
                     $msg = message::UNMATCH_USER_PASSWORD;
                     $_SESSION['msg'] = $msg;
 
-                    header('Location: ./view/login');
+                    header('Location: ../view/login');
                 }
             }
         }
