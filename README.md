@@ -6,5 +6,4 @@ ocha is links sharing web app service
 ![ocha_profile](https://github.com/naonao0001777/ocha/assets/46675984/7ff85375-d2b8-4d61-8d8c-516e9aa8cd42)
 
 ### profile
-![ocha_profile](https://github.com/naonao0001777/ocha/assets/46675984/eefefa0b-a979-4fe2-b893-5873a1a7c133)
-
+![ocha_profile_](https://github.com/naonao0001777/ocha/assets/46675984/89d88551-dede-4f3e-b71f-4f031b9abd0a)
