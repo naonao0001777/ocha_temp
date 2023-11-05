@@ -1,5 +1,5 @@
 # ocha
-ocha is links sharing web app service
+this repository is temporary
 ### index
 ![ocha_index](https://github.com/naonao0001777/ocha/assets/46675984/5a61b35d-27d1-4a8b-99cf-dbbdd2bfd279)
 ### admin
